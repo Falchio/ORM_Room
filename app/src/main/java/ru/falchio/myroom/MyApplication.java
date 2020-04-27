@@ -8,6 +8,7 @@ import ru.falchio.myroom.roomdao.UserDao;
 public class MyApplication extends Application {
     private static MyApplication instance;
     private UserBase userBase;
+    private static final String DATABASE_NAME = "USERS_BASE";
 
     @Override
     public void onCreate() {
@@ -16,7 +17,7 @@ public class MyApplication extends Application {
         userBase = Room.databaseBuilder(
                 getApplicationContext(),
                 UserBase.class,
-                "users_base").build();
+                DATABASE_NAME).build();
     }
 
     public static MyApplication getInstance(){
@@ -25,5 +26,9 @@ public class MyApplication extends Application {
 
     public UserDao getUserDao(){
         return userBase.getUserDao();
+    }
+
+    public UserBase getUserBase() {
+        return userBase;
     }
 }

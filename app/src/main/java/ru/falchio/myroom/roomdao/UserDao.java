@@ -1,5 +1,6 @@
 package ru.falchio.myroom.roomdao;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import ru.falchio.myroom.database.User;
 
+@Dao // <----- don't forget
 public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertUser(User user);
