@@ -18,11 +18,15 @@ public class User {
     @ColumnInfo(name = "age")
     private int age;
 
-    public User(long id, String name, String surname, int age) {
-        this.id = id;
+    public User(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
+    }
+
+    @Override
+    public String toString(){
+        return "User {" + "id=" + id + " name=" + name +" surname=" + surname+ " age=" +  age +"}";
     }
 
     public long getId() {
